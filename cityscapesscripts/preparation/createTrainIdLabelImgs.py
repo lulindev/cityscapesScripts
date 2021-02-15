@@ -21,7 +21,7 @@
 
 # python imports
 from __future__ import print_function, absolute_import, division
-import os, glob, sys
+import os, glob, sys, platform
 
 # cityscapes imports
 from cityscapesscripts.helpers.csHelpers import printError
@@ -30,10 +30,10 @@ from cityscapesscripts.preparation.json2labelImg import json2labelImg
 # The main method
 def main():
     # Where to look for Cityscapes
-    if 'CITYSCAPES_DATASET' in os.environ:
-        cityscapesPath = os.environ['CITYSCAPES_DATASET']
+    if platform.system() == 'Windows':
+        cityscapesPath = 'D:/data/cityscapes'
     else:
-        cityscapesPath = os.path.join(os.path.dirname(os.path.realpath(__file__)),'..','..')
+        cityscapesPath = '/home/lulin/data/cityscapes'
     # how to search for all ground truth
     searchFine   = os.path.join( cityscapesPath , "gtFine"   , "*" , "*" , "*_gt*_polygons.json" )
     searchCoarse = os.path.join( cityscapesPath , "gtCoarse" , "*" , "*" , "*_gt*_polygons.json" )
@@ -60,7 +60,7 @@ def main():
     print("Progress: {:>3} %".format( progress * 100 / len(files) ), end=' ')
     for f in files:
         # create the output filename
-        dst = f.replace( "_polygons.json" , "_labelTrainIds.png" )
+        dst = f.replace( "_polygons.json" , "_labelIds.png" )
 
         # do the conversion
         try:
