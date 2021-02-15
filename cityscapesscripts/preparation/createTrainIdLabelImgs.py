@@ -1,5 +1,3 @@
-#!/usr/bin/python
-#
 # Converts the polygonal annotations of the Cityscapes dataset
 # to images, where pixel values encode ground truth classes.
 #
