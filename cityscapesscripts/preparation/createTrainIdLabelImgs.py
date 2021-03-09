@@ -31,7 +31,7 @@ def main():
     if platform.system() == 'Windows':
         cityscapesPath = 'D:/data/cityscapes'
     else:
-        cityscapesPath = '/home/lulin/data/cityscapes'
+        cityscapesPath = '/home/clova/data/cityscapes'
     # how to search for all ground truth
     searchFine   = os.path.join( cityscapesPath , "gtFine"   , "*" , "*" , "*_gt*_polygons.json" )
     searchCoarse = os.path.join( cityscapesPath , "gtCoarse" , "*" , "*" , "*_gt*_polygons.json" )
